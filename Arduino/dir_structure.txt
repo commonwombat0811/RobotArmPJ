@@ -1,0 +1,35 @@
+.
+├── dir_structure.txt
+├── host_setup.sh
+├── intelligence_setting.md
+├── platformio.ini
+├── README_about_arduino_setting_up.md
+├── README.md
+└── src
+    ├── A_RobotArm.txt
+    ├── Arduino.ino
+    ├── arm
+    │   ├── CommandParser.cpp
+    │   ├── CommandParser.h
+    │   ├── Config.h
+    │   ├── README.md
+    │   ├── RobotArm.cpp
+    │   ├── RobotArm.h
+    │   ├── ServoController.cpp
+    │   └── ServoController.h
+    ├── B_InfratedSensor.txt
+    ├── C_CameraModule.txt
+    ├── camera
+    │   ├── CameraModule.cpp
+    │   ├── CameraModule.h
+    │   └── README.md
+    ├── D_VoiceInput.txt
+    └── sensors
+        ├── infrared
+        │   ├── InfratedSensor.cpp
+        │   └── InfratedSensor.h
+        └── voice
+            ├── VoiceInput.cpp
+            └── VoiceInput.h
+
+7 directories, 26 files

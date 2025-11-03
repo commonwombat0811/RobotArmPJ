@@ -1,0 +1,61 @@
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src",
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/.pio/libdeps/arduino_uno/Adafruit PWM Servo Driver Library",
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/.pio/libdeps/arduino_uno/Adafruit BusIO",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/arm",
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/camera",
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/sensors/infrated",
+                "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/sensors/voice",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src",
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/.pio/libdeps/arduino_uno/Adafruit PWM Servo Driver Library",
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/.pio/libdeps/arduino_uno/Adafruit BusIO",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/arm",
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/camera",
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/sensors/infrated",
+                    "/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/Arduino/src/sensors/voice",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/yutoseki/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60118",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "/Users/yutoseki/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

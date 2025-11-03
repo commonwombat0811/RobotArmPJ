@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "rpi5-robot-arm"
+version = "1.0.0"
+description = "Multiprocess Robot Arm Controller with YOLOv5 and LLM integration."
+authors = ["SY"]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+ultralytics = "^8.0"            # YOLO
+opencv-python-headless = "^4.8" # OpenCV (GUI不要)
+numpy = "^1.26"                 # 数値計算 (IK)
+pyserial = "^3.5"               # Arduino通信
+sounddevice = "^0.4.6"          # マイク入力
+scipy = "^1.11"                 # .wavファイル保存用 (scipy.io.wavfile)
+openai = "^1.3"                 # OpenAI (Whisper, GPT) API
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.16"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,30 @@
+#include "RobotArm.h"
+#include "ServoController.h"
+#include "CommandParser.h"
+#include "Config.h"
+
+static ServoController servoController;
+static CommandParser commandParser;
+
+void robotArmInit()
+{
+    servoController.init();
+    for (uint8_t i = 0; i < SERVO_COUNT; i++)
+    {
+        servoController.setAngle(i, INIT_ANGLES[i]);
+    }
+}
+
+void processRobotArmCommand(const String &command)
+{
+    uint8_t servoIndex, angle;
+    if (commandParser.parseCommand(command, servoIndex, angle))
+    {
+        servoController.setAngle(servoIndex, angle);
+        Serial.println("OK");
+    }
+    else
+    {
+        Serial.println("ERR");
+    }
+}
