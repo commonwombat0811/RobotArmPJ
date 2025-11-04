@@ -39,6 +39,7 @@ class ArduinoCommunicator:
     def _calculate_checksum(self, header, index, angle):
         return (header + index + angle) & 0xFF
 
+    # TODO コード確認
     def send_command(self, servo_index, angle):
         if not self.ser or not self.ser.is_open:
             print("[ArduinoCom] Error: Arduinoが接続されていません。")

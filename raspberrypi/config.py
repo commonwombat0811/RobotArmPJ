@@ -62,9 +62,9 @@ SERVO_COUNT = 6
 # (PCA9685のピン番号と、アームの関節を一致させます)
 
 SERVO_ID_GRIPPER = 0      # 0番: グリッパー (掴むやつ)
-SERVO_ID_SHOULDER = 4     # 4番: 肩 (あなたの定義)
-SERVO_ID_ELBOW = 3        # 3番: 肘 (あなたの定義)
-SERVO_ID_WRIST = 2        # 2番: 手首 (あなたの定義)
+SERVO_ID_SHOULDER = 4     # 4番: 肩
+SERVO_ID_ELBOW = 3        # 3番: 肘
+SERVO_ID_WRIST = 2        # 2番: 手首
 SERVO_ID_BASE = 5         # 5番: 土台 (1番下の横回転)
 SERVO_ID_WRIST_ROTATE = 1 # (残りのピン: 1番)
 

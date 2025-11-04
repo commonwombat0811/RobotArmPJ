@@ -45,24 +45,24 @@ class OrchestratorProcess(mp.Process):
 
         # ★★★ プロンプトエンジニアリングの核心 ★★★
         system_prompt = """
-あなたはロボットアームの司令塔です。
-ユーザーからの自然言語の指示を、以下の厳密なJSON形式に変換してください。
+            あなたはロボットアームの司令塔です。
+            ユーザーからの自然言語の指示を、以下の厳密なJSON形式に変換してください。
 
-1. 物体を探して掴む:
-   {"command": "PICKUP", "target": "物体名"}
-2. 物体を置く:
-   {"command": "PLACE", "location": "場所名"}
-3. 停止:
-   {"command": "STOP"}
+            1. 物体を探して掴む:
+            {"command": "PICKUP", "target": "物体名"}
+            2. 物体を置く:
+            {"command": "PLACE", "location": "場所名"}
+            3. 停止:
+            {"command": "STOP"}
 
-例:
-User: "りんごを掴んで" -> {"command": "PICKUP", "target": "りんご"}
-User: "それをテーブルに置いて" -> {"command": "PLACE", "location": "テーブル"}
-User: "止まって" -> {"command": "STOP"}
+            例:
+            User: "りんごを掴んで" -> {"command": "PICKUP", "target": "りんご"}
+            User: "それをテーブルに置いて" -> {"command": "PLACE", "location": "テーブル"}
+            User: "止まって" -> {"command": "STOP"}
 
-指示が無効な場合は {"command": "INVALID"} と返してください。
-JSONのみを返答してください。
-"""
+            指示が無効な場合は {"command": "INVALID"} と返してください。
+            JSONのみを返答してください。
+            """
         try:
             response = self.client.chat.completions.create(
                 model="gpt-4-turbo", # または gpt-3.5-turbo
@@ -114,3 +114,4 @@ JSONのみを返答してください。
             except Exception as e:
                 print(f"[Orchestrator] メインループでエラー: {e}")
                 time.sleep(1)
+

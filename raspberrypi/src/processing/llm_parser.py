@@ -12,7 +12,6 @@ def parse_llm_response(response_text: str):
     @return (dict): パースされた辞書 or None
     """
     try:
-        # --- 修正点: より堅牢なJSON抽出 ---
         # "```json\n{...}\n```" のようなマークダウンブロックや
         # その前後の余計なテキストを考慮し、
         # 最初に出現する '{' と 最後に出現する '}' の間を切り出す
@@ -26,7 +25,6 @@ def parse_llm_response(response_text: str):
             return None
 
         clean_text = response_text[start_index : end_index + 1]
-        # --- 修正ここまで ---
 
         data = json.loads(clean_text)
 
