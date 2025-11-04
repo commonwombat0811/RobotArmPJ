@@ -2,14 +2,18 @@
 real_time_control.py (プロセスA)
 「反射」を担当する、高速・ノンブロッキングなプロセス。
 (カメラ -> YOLO -> IR -> 3D座標変換 -> 3D-IK -> Arduino) のループを回す。
+
+★★★ ロジック追加修正版 ★★★
+- PICKUPステートが、近距離でGRABステートに移行するよう修正
+- GRAB (掴む), LIFT (持ち上げ), IDLE_HOLDING (待機) ステートを追加
 """
 
 import multiprocessing as mp
 import time
 import cv2
-from ultraltics import YOLO
+from ultralytics import YOLO
 import numpy as np
-import config # ★ config.py の全定数をインポート
+import config
 from src.hardware.arduino_com import ArduinoCommunicator
 from src.hardware.camera import Camera
 from src.hardware.ir_sensor import IRSensor
@@ -73,11 +77,20 @@ class RealTimeControlProcess(mp.Process):
     def check_for_new_task(self):
         """プロセスBからの指示をノンブロッキングで確認"""
         try:
-            new_task = self.task_queue.get_nowait()
-            if new_task:
-                print(f"[RealTime] 新タスク受信: {new_task}")
-                self.search_angle = config.HOME_POSITION_ANGLES[config.SERVO_ID_BASE]
-                self.current_task = new_task
+            # 掴んで待機中(IDLE_HOLDING)は、"PLACE"以外の指示を無視する
+            if self.current_task.get("command") == "IDLE_HOLDING":
+                new_task = self.task_queue.get_nowait()
+                if new_task and new_task.get("command") == "PLACE":
+                     print(f"[RealTime] 新タスク受信: {new_task}")
+                     self.current_task = new_task
+                # PLACE以外の指示 (例: PICKUP, STOP) は無視
+            else:
+                # 通常のタスク受付
+                new_task = self.task_queue.get_nowait()
+                if new_task:
+                    print(f"[RealTime] 新タスク受信: {new_task}")
+                    self.search_angle = config.HOME_POSITION_ANGLES[config.SERVO_ID_BASE]
+                    self.current_task = new_task
         except mp.queues.Empty:
             pass
 
@@ -265,6 +278,12 @@ class RealTimeControlProcess(mp.Process):
                             self.arduino.send_command(config.SERVO_ID_WRIST_ROTATE, config.HOME_POSITION_ANGLES[config.SERVO_ID_WRIST_ROTATE])
                             self.arduino.send_command(config.SERVO_ID_GRIPPER, config.GRIPPER_OPEN_ANGLE) # 掴むまで開く
 
+                            # IRセンサーの距離が「掴むしきい値」(configで定義)より近くなったら
+                            # (ここでは生のIR距離をそのまま使う)
+                            if ir_distance <= config.GRAB_DISTANCE_THRESHOLD_CM:
+                                print(f"[RealTime] ターゲット捕捉 (距離: {ir_distance}cm)。GRABステートに移行します。")
+                                self.current_task = {"command": "GRAB", "target": target_name} # targetを維持
+
                         else:
                             # リーチ外 (対象に近づくよう促すなど)
                             pass
@@ -288,6 +307,40 @@ class RealTimeControlProcess(mp.Process):
                     if pixel_coords:
                         print(f"[RealTime] {target_name} を再発見！ PICKUPステートに移行します。")
                         self.current_task = {"command": "PICKUP", "target": target_name}
+
+
+                elif command == "GRAB":
+                    # 役割: グリッパーを閉じる
+                    print(f"[RealTime] GRAB実行: {self.current_task.get('target')} を掴みます。")
+
+                    # 1. グリッパーを閉じる
+                    self.arduino.send_command(config.SERVO_ID_GRIPPER, config.GRIPPER_CLOSED_ANGLE)
+                    time.sleep(0.5) # グリッパーが閉じるのを待つ
+                    print("[RealTime] グリッパーを閉じました。")
+
+                    # 2. LIFTステートに移行
+                    self.current_task = {"command": "LIFT"}
+
+                elif command == "LIFT":
+                    # 役割: 掴んだ物体を安全な高さまで持ち上げる
+                    print("[RealTime] LIFT実行: 物体を持ち上げます。")
+
+                    # 1. 安全な「持ち上げ」角度に移動 (ホームの肩/肘の角度を流用)
+                    self.arduino.send_command(config.SERVO_ID_SHOULDER, config.HOME_POSITION_ANGLES[config.SERVO_ID_SHOULDER])
+                    self.arduino.send_command(config.SERVO_ID_ELBOW, config.HOME_POSITION_ANGLES[config.SERVO_ID_ELBOW])
+                    self.arduino.send_command(config.SERVO_ID_WRIST, config.HOME_POSITION_ANGLES[config.SERVO_ID_WRIST])
+                    # (土台とグリッパーは現在の角度を維持)
+
+                    time.sleep(1.0) # 持ち上げ待機
+
+                    # 2. 持ち上げ完了。PLACE指示を待つIDLE状態に。
+                    print("[RealTime] 持ち上げ完了。PLACE指示を待機します。")
+                    self.current_task = {"command": "IDLE_HOLDING"}
+
+                elif command == "IDLE_HOLDING":
+                    # 役割: 物体を掴んだまま、次の指示(PLACE)を待つ
+                    # (何もしない。ループで待機)
+                    pass
 
                 elif command == "PLACE":
                     self._execute_place_routine()

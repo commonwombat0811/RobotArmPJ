@@ -39,6 +39,7 @@ CAMERA_MOUNT_OFFSET_CM = np.array([
 ])
 
 # --- 5. AI / 処理設定 ---
+# 作業ディレクトリとは異なり、実際に Raspberry Pi 5の方にファイルをマウントするときに関連づけるというか実際に配置をするパスを適切に指定することで対応。
 YOLO_MODEL_PATH = "models/best.pt" # (学習済みモデルへのパス)
 
 # --- 6. 音声入力設定 ---
