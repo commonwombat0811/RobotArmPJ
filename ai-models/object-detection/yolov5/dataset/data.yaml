@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['ship']
+
+roboflow:
+  workspace: test-axzlq
+  project: my-first-project-ajlfs
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/test-axzlq/my-first-project-ajlfs/dataset/2
