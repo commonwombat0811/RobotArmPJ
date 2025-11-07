@@ -40,7 +40,9 @@ CAMERA_MOUNT_OFFSET_CM = np.array([
 
 # --- 5. AI / 処理設定 ---
 # 作業ディレクトリとは異なり、実際に Raspberry Pi 5の方にファイルをマウントするときに関連づけるというか実際に配置をするパスを適切に指定することで対応。
-YOLO_MODEL_PATH = "models/best.pt" # (学習済みモデルへのパス)
+# 必要に応じてRPiの方で rm -rf ~/.cache/torch/hub/ultralytics_yolov5_master を実行してキャッシュクリーン。
+YOLO_MODEL_PATH = "/home/yutoseki/robot_arm_project/models/best.pt"
+ # (学習済みモデルへのパス)
 
 # --- 6. 音声入力設定 ---
 AUDIO_SAMPLE_RATE = 16000 # 16kHz (Whisper推奨)
@@ -83,12 +85,12 @@ HOME_POSITION_ANGLES = [
 # ★★★ 要件2対応 (探索ポーズ) ★★★
 # (ピン定義に合わせて順番を変更)
 SEARCH_POSE_ANGLES = [
-    config.HOME_POSITION_ANGLES[SERVO_ID_GRIPPER],      # 0: グリッパー (開)
-    config.HOME_POSITION_ANGLES[SERVO_ID_WRIST_ROTATE], # 1: 手首回転 (固定)
+    HOME_POSITION_ANGLES[SERVO_ID_GRIPPER],      # 0: グリッパー (開)
+    HOME_POSITION_ANGLES[SERVO_ID_WRIST_ROTATE], # 1: 手首回転 (固定)
     90,                                                 # 2: 手首 (水平)
     90,                                                 # 3: 肘 (90度)
     90,                                                 # 4: 肩 (水平)
-    config.HOME_POSITION_ANGLES[SERVO_ID_BASE]          # 5: 土台 (これは探索時に上書き)
+    HOME_POSITION_ANGLES[SERVO_ID_BASE]          # 5: 土台 (これは探索時に上書き)
 ]
 
 # グリッパーの角度

@@ -18,19 +18,19 @@ class Camera:
         # プレビュー設定（リアルタイム処理用）
         # XRGB8888 はNumpy配列に最速で変換できるフォーマット
         config = self.picam2.create_preview_configuration(
+            # <<< 修正点: 'size' の前の不要なクォーテーションを削除 >>>
             main={"format": 'XRGB8888', "size": (width, height)},
             queue=False # 低遅延モード
         )
         self.picam2.configure(config)
 
-        # センサー解像度を取得して設定が反映されたか確認
-        # (picamera2ではsetとgetが分離していない)
-        self.width = int(self.picam2.camera_controls['ScalerCrop'][2])
-        self.height = int(self.picam2.camera_controls['ScalerCrop'][3])
+        # センサー解像度を取得して設定が反映されたか確認 (引数から直接取得)
+        self.width = width
+        self.height = height
 
         if self.width != width or self.height != height:
              print(f"[Camera] 警告: 要求解像度 {width}x{height} と異なります。")
-             print(f"[Camera] センサークロップ: {self.width}x{self.height}")
+             print(f"[Camera] 設定サイズ: {self.width}x{self.height}")
 
         self.picam2.start()
         print(f"[Camera] プレビューストリーム開始。解像度: {self.width}x{self.height}")

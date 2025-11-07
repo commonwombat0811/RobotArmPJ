@@ -1,0 +1,458 @@
+.
+├── 3d-modeling
+│   └── readme.md
+├── ai-models
+│   └── object-detection
+│       └── yolov5
+│           ├── atbout_images_labels_indir.md
+│           ├── colab_finetune_complete_steps.md
+│           ├── dataset
+│           │   ├── data.yaml
+│           │   ├── README.dataset.txt
+│           │   ├── readme.md
+│           │   ├── README.roboflow.txt
+│           │   ├── test
+│           │   │   ├── images
+│           │   │   │   ├── photo_20251104_020431_446915_jpg.rf.d2ba19ef206ab13b58ee93d76f7cb40c.jpg
+│           │   │   │   ├── photo_20251104_021050_994134_jpg.rf.f48f45fd87dfbaf7af3b8256bdccaa85.jpg
+│           │   │   │   ├── photo_20251104_021229_506913_jpg.rf.b0f618daa1a3179056b6a8f322eb3e1d.jpg
+│           │   │   │   ├── photo_20251104_021346_585778_jpg.rf.b260df943db9b975075e1aefc2461b93.jpg
+│           │   │   │   ├── photo_20251104_021356_308266_jpg.rf.31dfb9bea597c63fbf380eda590c2629.jpg
+│           │   │   │   └── photo_20251104_021411_363084_jpg.rf.b7e168f426cf35c181a0c98e0d0078cc.jpg
+│           │   │   └── labels
+│           │   │       ├── photo_20251104_020431_446915_jpg.rf.d2ba19ef206ab13b58ee93d76f7cb40c.txt
+│           │   │       ├── photo_20251104_021050_994134_jpg.rf.f48f45fd87dfbaf7af3b8256bdccaa85.txt
+│           │   │       ├── photo_20251104_021229_506913_jpg.rf.b0f618daa1a3179056b6a8f322eb3e1d.txt
+│           │   │       ├── photo_20251104_021346_585778_jpg.rf.b260df943db9b975075e1aefc2461b93.txt
+│           │   │       ├── photo_20251104_021356_308266_jpg.rf.31dfb9bea597c63fbf380eda590c2629.txt
+│           │   │       └── photo_20251104_021411_363084_jpg.rf.b7e168f426cf35c181a0c98e0d0078cc.txt
+│           │   ├── train
+│           │   │   ├── images
+│           │   │   │   ├── photo_20251104_014513_437987_jpg.rf.02b3519b385c46ffc853eb67f7e00ef1.jpg
+│           │   │   │   ├── photo_20251104_014513_437987_jpg.rf.15cc3ba14142f46fb295a8d40b0566fc.jpg
+│           │   │   │   ├── photo_20251104_014513_437987_jpg.rf.eb6feaca16a1230bcb656f78b4509016.jpg
+│           │   │   │   ├── photo_20251104_014805_052483_jpg.rf.6e40cb634dd9f565dd1cf28fdb1d7a7f.jpg
+│           │   │   │   ├── photo_20251104_014805_052483_jpg.rf.7735e500ef68c7f3e662d3ee754c4160.jpg
+│           │   │   │   ├── photo_20251104_014805_052483_jpg.rf.c30d7863a8735a9baa21b2b0ecc29230.jpg
+│           │   │   │   ├── photo_20251104_014808_060131_jpg.rf.65f35f2c651668bbe3c3a1b85b22ae5c.jpg
+│           │   │   │   ├── photo_20251104_014808_060131_jpg.rf.6e525c1dc06e77d455318b68674d35d4.jpg
+│           │   │   │   ├── photo_20251104_014808_060131_jpg.rf.fa51376dad004782bb1c8172566cf810.jpg
+│           │   │   │   ├── photo_20251104_015230_849297_jpg.rf.1176f64e1a94da4a886140c3604caaf9.jpg
+│           │   │   │   ├── photo_20251104_015230_849297_jpg.rf.66ff7c1c45fe53e7e150d2a6964051f5.jpg
+│           │   │   │   ├── photo_20251104_015230_849297_jpg.rf.b13ffb00346b48b4fbbac7ab010cc5b7.jpg
+│           │   │   │   ├── photo_20251104_015232_985916_jpg.rf.0ba6ed5db1efbabee9db7fce2b32cc0a.jpg
+│           │   │   │   ├── photo_20251104_015232_985916_jpg.rf.b0c7259b348964829f6d3f5665b3767b.jpg
+│           │   │   │   ├── photo_20251104_015232_985916_jpg.rf.f2d2d4c533514a634364948a450c8994.jpg
+│           │   │   │   ├── photo_20251104_015310_333726_jpg.rf.8099e29499cfc5d1ac5da0ddf2fd1b47.jpg
+│           │   │   │   ├── photo_20251104_015310_333726_jpg.rf.b089a6090d587563b5cc204d0c5e78e9.jpg
+│           │   │   │   ├── photo_20251104_015310_333726_jpg.rf.dcdf48a8e0e87cf90cf257e15732beec.jpg
+│           │   │   │   ├── photo_20251104_015329_940197_jpg.rf.51709a92dbecdf29f95e1cf222458de7.jpg
+│           │   │   │   ├── photo_20251104_015329_940197_jpg.rf.96ade28378cf2967b9fd12a1db762f32.jpg
+│           │   │   │   ├── photo_20251104_015329_940197_jpg.rf.d6db1e571e2b8bf9f78b8581a52afd81.jpg
+│           │   │   │   ├── photo_20251104_015351_863702_jpg.rf.102e0a18dd3c0be5d47befeed1446f7c.jpg
+│           │   │   │   ├── photo_20251104_015351_863702_jpg.rf.b86da44d6e5c000b23ef73ffb22aff6e.jpg
+│           │   │   │   ├── photo_20251104_015351_863702_jpg.rf.fe1dfb93e3cc28613ba97e946e6a52af.jpg
+│           │   │   │   ├── photo_20251104_015811_237103_jpg.rf.47f2fd2cda08842f5832a07f0fd13200.jpg
+│           │   │   │   ├── photo_20251104_015811_237103_jpg.rf.b40e80e9972ce882afa56c909d6b0b9b.jpg
+│           │   │   │   ├── photo_20251104_015811_237103_jpg.rf.c5f740d027592b888c07ea204f77cc52.jpg
+│           │   │   │   ├── photo_20251104_015913_939558_jpg.rf.156ac52ae1f0be7486293725f11325a7.jpg
+│           │   │   │   ├── photo_20251104_015913_939558_jpg.rf.1c95450a4de6c995842472e4cc22b253.jpg
+│           │   │   │   ├── photo_20251104_015913_939558_jpg.rf.c2f054eff6e253e7ea79a6a0d375d1e7.jpg
+│           │   │   │   ├── photo_20251104_015934_748088_jpg.rf.2cfefc73fc374e416cd4188e4a1bfb7b.jpg
+│           │   │   │   ├── photo_20251104_015934_748088_jpg.rf.5c048c93f70597fe1e489191475fbe15.jpg
+│           │   │   │   ├── photo_20251104_015934_748088_jpg.rf.604db00bf942f0c08798f7288200c0a0.jpg
+│           │   │   │   ├── photo_20251104_015939_602721_jpg.rf.122e5f614168f5971bcef9c95ca38449.jpg
+│           │   │   │   ├── photo_20251104_015939_602721_jpg.rf.ade9f4c366a1d791c1a0a7c73e94cf8c.jpg
+│           │   │   │   ├── photo_20251104_015939_602721_jpg.rf.c56be6b2e3037c848f7014feebd6382d.jpg
+│           │   │   │   ├── photo_20251104_020046_621897_jpg.rf.57883d1dcbf257d885b3df703e327786.jpg
+│           │   │   │   ├── photo_20251104_020046_621897_jpg.rf.d3db8f080bc8478e605ac782664964e6.jpg
+│           │   │   │   ├── photo_20251104_020046_621897_jpg.rf.e5d4dd010fedcc0f6ae302a4b48638c9.jpg
+│           │   │   │   ├── photo_20251104_020113_633675_jpg.rf.6c71edb0575c1554fd86a5a7f9d6ade8.jpg
+│           │   │   │   ├── photo_20251104_020113_633675_jpg.rf.86ddabd6815729bbe762519520b9268f.jpg
+│           │   │   │   ├── photo_20251104_020113_633675_jpg.rf.9c46d5d567aea533025ad9cf916ee4cb.jpg
+│           │   │   │   ├── photo_20251104_020211_997717_jpg.rf.001559d71767451f32c062f3fd5c87f0.jpg
+│           │   │   │   ├── photo_20251104_020211_997717_jpg.rf.da5792794ae1bbb2eb9170c3c910df8a.jpg
+│           │   │   │   ├── photo_20251104_020211_997717_jpg.rf.e16415f0bc15028505972c392dbf7479.jpg
+│           │   │   │   ├── photo_20251104_020226_026823_jpg.rf.58347be944b37b49c60813a194e8b798.jpg
+│           │   │   │   ├── photo_20251104_020226_026823_jpg.rf.62d6c241f726a8248241f98a09cdd236.jpg
+│           │   │   │   ├── photo_20251104_020226_026823_jpg.rf.afe57339900c1d27244e2109e1ebfcd2.jpg
+│           │   │   │   ├── photo_20251104_020240_655502_jpg.rf.0fc5a368800b33f815a41c43346decdc.jpg
+│           │   │   │   ├── photo_20251104_020240_655502_jpg.rf.23b9f77689177ffc98c0f3454ac1d463.jpg
+│           │   │   │   ├── photo_20251104_020240_655502_jpg.rf.b2898484a9d64497b889595e04e858da.jpg
+│           │   │   │   ├── photo_20251104_020312_216037_jpg.rf.1aa602b0ea8656a1dddbe422ebcaff1c.jpg
+│           │   │   │   ├── photo_20251104_020312_216037_jpg.rf.2aac433d9327f9a42711ab55b4f98b30.jpg
+│           │   │   │   ├── photo_20251104_020312_216037_jpg.rf.ea327bfdbba1246ee65f0bd9b0ce7aaf.jpg
+│           │   │   │   ├── photo_20251104_020316_445325_jpg.rf.0caddd870c61767d7a08ec39698cbbea.jpg
+│           │   │   │   ├── photo_20251104_020316_445325_jpg.rf.65d11417d6552a72517fc605e2b74a7c.jpg
+│           │   │   │   ├── photo_20251104_020316_445325_jpg.rf.baac74b7b0d9740b81b2cea399f07c34.jpg
+│           │   │   │   ├── photo_20251104_020342_245273_jpg.rf.1f07ae87571eef46564ef32fb63a4104.jpg
+│           │   │   │   ├── photo_20251104_020342_245273_jpg.rf.6fd41fa2992b9ed7f4a72401141b6cba.jpg
+│           │   │   │   ├── photo_20251104_020342_245273_jpg.rf.c149f2ac8fa5cecfa4c1e0714a1a0b13.jpg
+│           │   │   │   ├── photo_20251104_020354_859482_jpg.rf.1149101ee40b8dac4319bb11e1c51aba.jpg
+│           │   │   │   ├── photo_20251104_020354_859482_jpg.rf.12bb57981a8140e0fd21962eb0cd7bc4.jpg
+│           │   │   │   ├── photo_20251104_020354_859482_jpg.rf.68cdc81e265c14feda6d583bc5ec9ed1.jpg
+│           │   │   │   ├── photo_20251104_020408_060846_jpg.rf.bf78186dbdfb96e9f68511048ae8bc6c.jpg
+│           │   │   │   ├── photo_20251104_020408_060846_jpg.rf.dcef69f4a4d68c8933d1e7246af3d454.jpg
+│           │   │   │   ├── photo_20251104_020408_060846_jpg.rf.f1468eeb8160ad33bda69b8c05d03a30.jpg
+│           │   │   │   ├── photo_20251104_020419_677785_jpg.rf.0dbbd295c9e098fe556bdd2f475cd8c7.jpg
+│           │   │   │   ├── photo_20251104_020419_677785_jpg.rf.11ac33148afc0058e84fef52e0515d95.jpg
+│           │   │   │   ├── photo_20251104_020419_677785_jpg.rf.7c4296e4556e949826cffdec9b516f62.jpg
+│           │   │   │   ├── photo_20251104_020459_054934_jpg.rf.066f00169ac18c539b634fef3d48b498.jpg
+│           │   │   │   ├── photo_20251104_020459_054934_jpg.rf.be7473ec6bde304131a5e388b0b984ee.jpg
+│           │   │   │   ├── photo_20251104_020459_054934_jpg.rf.dba845f8e886198dc277387cc4e94484.jpg
+│           │   │   │   ├── photo_20251104_020516_496951_jpg.rf.39e6152f3550af2f01c2f9aa37219bce.jpg
+│           │   │   │   ├── photo_20251104_020516_496951_jpg.rf.cbe4d741f5e666ea7b0eba9f112be1b5.jpg
+│           │   │   │   ├── photo_20251104_020516_496951_jpg.rf.ead2a4888c500fbeb4ba725899d30e17.jpg
+│           │   │   │   ├── photo_20251104_020614_575468_jpg.rf.03476427ad9ae821a4cb3be9b2c0c93b.jpg
+│           │   │   │   ├── photo_20251104_020614_575468_jpg.rf.4476fd22824a1242d451f45798b92118.jpg
+│           │   │   │   ├── photo_20251104_020614_575468_jpg.rf.98b6abe6c36e3ba3e80eabda5c02fc9b.jpg
+│           │   │   │   ├── photo_20251104_020827_129541_jpg.rf.97a450342e4c29b9f1396f0267397916.jpg
+│           │   │   │   ├── photo_20251104_020827_129541_jpg.rf.98e0050299ae34f586514197989a056c.jpg
+│           │   │   │   ├── photo_20251104_020827_129541_jpg.rf.d42e5827525639b8dc854ea448506778.jpg
+│           │   │   │   ├── photo_20251104_020944_460424_jpg.rf.41626df01fe393c1fdb42b1f2769ec9c.jpg
+│           │   │   │   ├── photo_20251104_020944_460424_jpg.rf.53e8ff698c3da5686e751fbf376601bc.jpg
+│           │   │   │   ├── photo_20251104_020944_460424_jpg.rf.e440812a3257f9cabba7e5c1f1975732.jpg
+│           │   │   │   ├── photo_20251104_020959_495499_jpg.rf.18057d5bb402cc08f7fa56898dde78d3.jpg
+│           │   │   │   ├── photo_20251104_020959_495499_jpg.rf.b3e83a04621a6f9ef4d0cc5997695f35.jpg
+│           │   │   │   ├── photo_20251104_020959_495499_jpg.rf.bcc70fbb1a4ee807296340180ea1ee03.jpg
+│           │   │   │   ├── photo_20251104_021021_736090_jpg.rf.04c87d6f23a6f0f8b062c2ac2d7ed793.jpg
+│           │   │   │   ├── photo_20251104_021021_736090_jpg.rf.51c70e58752d347432e33223cd91dd88.jpg
+│           │   │   │   ├── photo_20251104_021021_736090_jpg.rf.aaa8db4ba6593209fc5badcabb24bbdd.jpg
+│           │   │   │   ├── photo_20251104_021110_166825_jpg.rf.06ba7d8ccbf5251eacddfad327050a62.jpg
+│           │   │   │   ├── photo_20251104_021110_166825_jpg.rf.bd571fff656d13a15dd6fdef005efe8e.jpg
+│           │   │   │   ├── photo_20251104_021110_166825_jpg.rf.c83e5dc78fc6ccf030d78ce7403382bf.jpg
+│           │   │   │   ├── photo_20251104_021127_606693_jpg.rf.0bc1fb3e07b69cbca78db0a1309eaecd.jpg
+│           │   │   │   ├── photo_20251104_021127_606693_jpg.rf.eda40c2c85e384dd496dbc180894f6c2.jpg
+│           │   │   │   ├── photo_20251104_021127_606693_jpg.rf.f60a0cd105d9eb137c1a796d1071308f.jpg
+│           │   │   │   ├── photo_20251104_021137_967251_jpg.rf.07fca5942833f47014732af25120b2ab.jpg
+│           │   │   │   ├── photo_20251104_021137_967251_jpg.rf.a84befdd674e109b99b0a45240b19ff7.jpg
+│           │   │   │   ├── photo_20251104_021137_967251_jpg.rf.dbe61695cc10668a2a44f51019cddc52.jpg
+│           │   │   │   ├── photo_20251104_021151_367451_jpg.rf.a034a6a05d270b9535acd7e6f9213d9a.jpg
+│           │   │   │   ├── photo_20251104_021151_367451_jpg.rf.c9777a65ea75828547910a89d08a6cca.jpg
+│           │   │   │   ├── photo_20251104_021151_367451_jpg.rf.e1e096a33b476985ac6864b8106d7b07.jpg
+│           │   │   │   ├── photo_20251104_021202_163012_jpg.rf.3e2b4943a822e21174a8ce53e937ea9b.jpg
+│           │   │   │   ├── photo_20251104_021202_163012_jpg.rf.4708cb5eef0deada697e03e5c004adbf.jpg
+│           │   │   │   ├── photo_20251104_021202_163012_jpg.rf.83c342887780709299a4a37cfd827eaf.jpg
+│           │   │   │   ├── photo_20251104_021242_503592_jpg.rf.02076649eaea533041f72822948af851.jpg
+│           │   │   │   ├── photo_20251104_021242_503592_jpg.rf.399897381c871b3b8317f808089f0207.jpg
+│           │   │   │   ├── photo_20251104_021242_503592_jpg.rf.b35a7d4057d14ec25fc68cf01bae5d5e.jpg
+│           │   │   │   ├── photo_20251104_021256_638902_jpg.rf.b93f2988b8ec5d36d9f06c80cb393ac8.jpg
+│           │   │   │   ├── photo_20251104_021256_638902_jpg.rf.ce1b174d5db062ebcb557f55724b8753.jpg
+│           │   │   │   ├── photo_20251104_021256_638902_jpg.rf.ea455750d58551e2eaca4e48cada05e0.jpg
+│           │   │   │   ├── photo_20251104_021309_349170_jpg.rf.18166802e214460fd1ffe144896d894e.jpg
+│           │   │   │   ├── photo_20251104_021309_349170_jpg.rf.2d359f029815f13af29dc93b7c182ebe.jpg
+│           │   │   │   ├── photo_20251104_021309_349170_jpg.rf.ac0c08bde96db46932ab2b715692922b.jpg
+│           │   │   │   ├── photo_20251104_021321_386475_jpg.rf.03eb88d3bb41890e0fea66c8260c5225.jpg
+│           │   │   │   ├── photo_20251104_021321_386475_jpg.rf.0d4ff615c331afef219112c65bce8e41.jpg
+│           │   │   │   ├── photo_20251104_021321_386475_jpg.rf.d1559e400af9d4d339340cea0ff73a3a.jpg
+│           │   │   │   ├── photo_20251104_021335_150712_jpg.rf.1385286c08a9cbff548b366b6e38c55d.jpg
+│           │   │   │   ├── photo_20251104_021335_150712_jpg.rf.89341c0c4c1b1848220d86223ecb6b0a.jpg
+│           │   │   │   ├── photo_20251104_021335_150712_jpg.rf.ccb372bd2282772bcfc7422ee2abb22e.jpg
+│           │   │   │   ├── photo_20251104_021423_196074_jpg.rf.7da9a53cf440d6b2b2fcefc1d76360af.jpg
+│           │   │   │   ├── photo_20251104_021423_196074_jpg.rf.e0ca9be83d379dd124c9e5cf39e2650f.jpg
+│           │   │   │   └── photo_20251104_021423_196074_jpg.rf.e131fe107326c9646181cd2649500e17.jpg
+│           │   │   └── labels
+│           │   │       ├── photo_20251104_014513_437987_jpg.rf.02b3519b385c46ffc853eb67f7e00ef1.txt
+│           │   │       ├── photo_20251104_014513_437987_jpg.rf.15cc3ba14142f46fb295a8d40b0566fc.txt
+│           │   │       ├── photo_20251104_014513_437987_jpg.rf.eb6feaca16a1230bcb656f78b4509016.txt
+│           │   │       ├── photo_20251104_014805_052483_jpg.rf.6e40cb634dd9f565dd1cf28fdb1d7a7f.txt
+│           │   │       ├── photo_20251104_014805_052483_jpg.rf.7735e500ef68c7f3e662d3ee754c4160.txt
+│           │   │       ├── photo_20251104_014805_052483_jpg.rf.c30d7863a8735a9baa21b2b0ecc29230.txt
+│           │   │       ├── photo_20251104_014808_060131_jpg.rf.65f35f2c651668bbe3c3a1b85b22ae5c.txt
+│           │   │       ├── photo_20251104_014808_060131_jpg.rf.6e525c1dc06e77d455318b68674d35d4.txt
+│           │   │       ├── photo_20251104_014808_060131_jpg.rf.fa51376dad004782bb1c8172566cf810.txt
+│           │   │       ├── photo_20251104_015230_849297_jpg.rf.1176f64e1a94da4a886140c3604caaf9.txt
+│           │   │       ├── photo_20251104_015230_849297_jpg.rf.66ff7c1c45fe53e7e150d2a6964051f5.txt
+│           │   │       ├── photo_20251104_015230_849297_jpg.rf.b13ffb00346b48b4fbbac7ab010cc5b7.txt
+│           │   │       ├── photo_20251104_015232_985916_jpg.rf.0ba6ed5db1efbabee9db7fce2b32cc0a.txt
+│           │   │       ├── photo_20251104_015232_985916_jpg.rf.b0c7259b348964829f6d3f5665b3767b.txt
+│           │   │       ├── photo_20251104_015232_985916_jpg.rf.f2d2d4c533514a634364948a450c8994.txt
+│           │   │       ├── photo_20251104_015310_333726_jpg.rf.8099e29499cfc5d1ac5da0ddf2fd1b47.txt
+│           │   │       ├── photo_20251104_015310_333726_jpg.rf.b089a6090d587563b5cc204d0c5e78e9.txt
+│           │   │       ├── photo_20251104_015310_333726_jpg.rf.dcdf48a8e0e87cf90cf257e15732beec.txt
+│           │   │       ├── photo_20251104_015329_940197_jpg.rf.51709a92dbecdf29f95e1cf222458de7.txt
+│           │   │       ├── photo_20251104_015329_940197_jpg.rf.96ade28378cf2967b9fd12a1db762f32.txt
+│           │   │       ├── photo_20251104_015329_940197_jpg.rf.d6db1e571e2b8bf9f78b8581a52afd81.txt
+│           │   │       ├── photo_20251104_015351_863702_jpg.rf.102e0a18dd3c0be5d47befeed1446f7c.txt
+│           │   │       ├── photo_20251104_015351_863702_jpg.rf.b86da44d6e5c000b23ef73ffb22aff6e.txt
+│           │   │       ├── photo_20251104_015351_863702_jpg.rf.fe1dfb93e3cc28613ba97e946e6a52af.txt
+│           │   │       ├── photo_20251104_015811_237103_jpg.rf.47f2fd2cda08842f5832a07f0fd13200.txt
+│           │   │       ├── photo_20251104_015811_237103_jpg.rf.b40e80e9972ce882afa56c909d6b0b9b.txt
+│           │   │       ├── photo_20251104_015811_237103_jpg.rf.c5f740d027592b888c07ea204f77cc52.txt
+│           │   │       ├── photo_20251104_015913_939558_jpg.rf.156ac52ae1f0be7486293725f11325a7.txt
+│           │   │       ├── photo_20251104_015913_939558_jpg.rf.1c95450a4de6c995842472e4cc22b253.txt
+│           │   │       ├── photo_20251104_015913_939558_jpg.rf.c2f054eff6e253e7ea79a6a0d375d1e7.txt
+│           │   │       ├── photo_20251104_015934_748088_jpg.rf.2cfefc73fc374e416cd4188e4a1bfb7b.txt
+│           │   │       ├── photo_20251104_015934_748088_jpg.rf.5c048c93f70597fe1e489191475fbe15.txt
+│           │   │       ├── photo_20251104_015934_748088_jpg.rf.604db00bf942f0c08798f7288200c0a0.txt
+│           │   │       ├── photo_20251104_015939_602721_jpg.rf.122e5f614168f5971bcef9c95ca38449.txt
+│           │   │       ├── photo_20251104_015939_602721_jpg.rf.ade9f4c366a1d791c1a0a7c73e94cf8c.txt
+│           │   │       ├── photo_20251104_015939_602721_jpg.rf.c56be6b2e3037c848f7014feebd6382d.txt
+│           │   │       ├── photo_20251104_020046_621897_jpg.rf.57883d1dcbf257d885b3df703e327786.txt
+│           │   │       ├── photo_20251104_020046_621897_jpg.rf.d3db8f080bc8478e605ac782664964e6.txt
+│           │   │       ├── photo_20251104_020046_621897_jpg.rf.e5d4dd010fedcc0f6ae302a4b48638c9.txt
+│           │   │       ├── photo_20251104_020113_633675_jpg.rf.6c71edb0575c1554fd86a5a7f9d6ade8.txt
+│           │   │       ├── photo_20251104_020113_633675_jpg.rf.86ddabd6815729bbe762519520b9268f.txt
+│           │   │       ├── photo_20251104_020113_633675_jpg.rf.9c46d5d567aea533025ad9cf916ee4cb.txt
+│           │   │       ├── photo_20251104_020211_997717_jpg.rf.001559d71767451f32c062f3fd5c87f0.txt
+│           │   │       ├── photo_20251104_020211_997717_jpg.rf.da5792794ae1bbb2eb9170c3c910df8a.txt
+│           │   │       ├── photo_20251104_020211_997717_jpg.rf.e16415f0bc15028505972c392dbf7479.txt
+│           │   │       ├── photo_20251104_020226_026823_jpg.rf.58347be944b37b49c60813a194e8b798.txt
+│           │   │       ├── photo_20251104_020226_026823_jpg.rf.62d6c241f726a8248241f98a09cdd236.txt
+│           │   │       ├── photo_20251104_020226_026823_jpg.rf.afe57339900c1d27244e2109e1ebfcd2.txt
+│           │   │       ├── photo_20251104_020240_655502_jpg.rf.0fc5a368800b33f815a41c43346decdc.txt
+│           │   │       ├── photo_20251104_020240_655502_jpg.rf.23b9f77689177ffc98c0f3454ac1d463.txt
+│           │   │       ├── photo_20251104_020240_655502_jpg.rf.b2898484a9d64497b889595e04e858da.txt
+│           │   │       ├── photo_20251104_020312_216037_jpg.rf.1aa602b0ea8656a1dddbe422ebcaff1c.txt
+│           │   │       ├── photo_20251104_020312_216037_jpg.rf.2aac433d9327f9a42711ab55b4f98b30.txt
+│           │   │       ├── photo_20251104_020312_216037_jpg.rf.ea327bfdbba1246ee65f0bd9b0ce7aaf.txt
+│           │   │       ├── photo_20251104_020316_445325_jpg.rf.0caddd870c61767d7a08ec39698cbbea.txt
+│           │   │       ├── photo_20251104_020316_445325_jpg.rf.65d11417d6552a72517fc605e2b74a7c.txt
+│           │   │       ├── photo_20251104_020316_445325_jpg.rf.baac74b7b0d9740b81b2cea399f07c34.txt
+│           │   │       ├── photo_20251104_020342_245273_jpg.rf.1f07ae87571eef46564ef32fb63a4104.txt
+│           │   │       ├── photo_20251104_020342_245273_jpg.rf.6fd41fa2992b9ed7f4a72401141b6cba.txt
+│           │   │       ├── photo_20251104_020342_245273_jpg.rf.c149f2ac8fa5cecfa4c1e0714a1a0b13.txt
+│           │   │       ├── photo_20251104_020354_859482_jpg.rf.1149101ee40b8dac4319bb11e1c51aba.txt
+│           │   │       ├── photo_20251104_020354_859482_jpg.rf.12bb57981a8140e0fd21962eb0cd7bc4.txt
+│           │   │       ├── photo_20251104_020354_859482_jpg.rf.68cdc81e265c14feda6d583bc5ec9ed1.txt
+│           │   │       ├── photo_20251104_020408_060846_jpg.rf.bf78186dbdfb96e9f68511048ae8bc6c.txt
+│           │   │       ├── photo_20251104_020408_060846_jpg.rf.dcef69f4a4d68c8933d1e7246af3d454.txt
+│           │   │       ├── photo_20251104_020408_060846_jpg.rf.f1468eeb8160ad33bda69b8c05d03a30.txt
+│           │   │       ├── photo_20251104_020419_677785_jpg.rf.0dbbd295c9e098fe556bdd2f475cd8c7.txt
+│           │   │       ├── photo_20251104_020419_677785_jpg.rf.11ac33148afc0058e84fef52e0515d95.txt
+│           │   │       ├── photo_20251104_020419_677785_jpg.rf.7c4296e4556e949826cffdec9b516f62.txt
+│           │   │       ├── photo_20251104_020459_054934_jpg.rf.066f00169ac18c539b634fef3d48b498.txt
+│           │   │       ├── photo_20251104_020459_054934_jpg.rf.be7473ec6bde304131a5e388b0b984ee.txt
+│           │   │       ├── photo_20251104_020459_054934_jpg.rf.dba845f8e886198dc277387cc4e94484.txt
+│           │   │       ├── photo_20251104_020516_496951_jpg.rf.39e6152f3550af2f01c2f9aa37219bce.txt
+│           │   │       ├── photo_20251104_020516_496951_jpg.rf.cbe4d741f5e666ea7b0eba9f112be1b5.txt
+│           │   │       ├── photo_20251104_020516_496951_jpg.rf.ead2a4888c500fbeb4ba725899d30e17.txt
+│           │   │       ├── photo_20251104_020614_575468_jpg.rf.03476427ad9ae821a4cb3be9b2c0c93b.txt
+│           │   │       ├── photo_20251104_020614_575468_jpg.rf.4476fd22824a1242d451f45798b92118.txt
+│           │   │       ├── photo_20251104_020614_575468_jpg.rf.98b6abe6c36e3ba3e80eabda5c02fc9b.txt
+│           │   │       ├── photo_20251104_020827_129541_jpg.rf.97a450342e4c29b9f1396f0267397916.txt
+│           │   │       ├── photo_20251104_020827_129541_jpg.rf.98e0050299ae34f586514197989a056c.txt
+│           │   │       ├── photo_20251104_020827_129541_jpg.rf.d42e5827525639b8dc854ea448506778.txt
+│           │   │       ├── photo_20251104_020944_460424_jpg.rf.41626df01fe393c1fdb42b1f2769ec9c.txt
+│           │   │       ├── photo_20251104_020944_460424_jpg.rf.53e8ff698c3da5686e751fbf376601bc.txt
+│           │   │       ├── photo_20251104_020944_460424_jpg.rf.e440812a3257f9cabba7e5c1f1975732.txt
+│           │   │       ├── photo_20251104_020959_495499_jpg.rf.18057d5bb402cc08f7fa56898dde78d3.txt
+│           │   │       ├── photo_20251104_020959_495499_jpg.rf.b3e83a04621a6f9ef4d0cc5997695f35.txt
+│           │   │       ├── photo_20251104_020959_495499_jpg.rf.bcc70fbb1a4ee807296340180ea1ee03.txt
+│           │   │       ├── photo_20251104_021021_736090_jpg.rf.04c87d6f23a6f0f8b062c2ac2d7ed793.txt
+│           │   │       ├── photo_20251104_021021_736090_jpg.rf.51c70e58752d347432e33223cd91dd88.txt
+│           │   │       ├── photo_20251104_021021_736090_jpg.rf.aaa8db4ba6593209fc5badcabb24bbdd.txt
+│           │   │       ├── photo_20251104_021110_166825_jpg.rf.06ba7d8ccbf5251eacddfad327050a62.txt
+│           │   │       ├── photo_20251104_021110_166825_jpg.rf.bd571fff656d13a15dd6fdef005efe8e.txt
+│           │   │       ├── photo_20251104_021110_166825_jpg.rf.c83e5dc78fc6ccf030d78ce7403382bf.txt
+│           │   │       ├── photo_20251104_021127_606693_jpg.rf.0bc1fb3e07b69cbca78db0a1309eaecd.txt
+│           │   │       ├── photo_20251104_021127_606693_jpg.rf.eda40c2c85e384dd496dbc180894f6c2.txt
+│           │   │       ├── photo_20251104_021127_606693_jpg.rf.f60a0cd105d9eb137c1a796d1071308f.txt
+│           │   │       ├── photo_20251104_021137_967251_jpg.rf.07fca5942833f47014732af25120b2ab.txt
+│           │   │       ├── photo_20251104_021137_967251_jpg.rf.a84befdd674e109b99b0a45240b19ff7.txt
+│           │   │       ├── photo_20251104_021137_967251_jpg.rf.dbe61695cc10668a2a44f51019cddc52.txt
+│           │   │       ├── photo_20251104_021151_367451_jpg.rf.a034a6a05d270b9535acd7e6f9213d9a.txt
+│           │   │       ├── photo_20251104_021151_367451_jpg.rf.c9777a65ea75828547910a89d08a6cca.txt
+│           │   │       ├── photo_20251104_021151_367451_jpg.rf.e1e096a33b476985ac6864b8106d7b07.txt
+│           │   │       ├── photo_20251104_021202_163012_jpg.rf.3e2b4943a822e21174a8ce53e937ea9b.txt
+│           │   │       ├── photo_20251104_021202_163012_jpg.rf.4708cb5eef0deada697e03e5c004adbf.txt
+│           │   │       ├── photo_20251104_021202_163012_jpg.rf.83c342887780709299a4a37cfd827eaf.txt
+│           │   │       ├── photo_20251104_021242_503592_jpg.rf.02076649eaea533041f72822948af851.txt
+│           │   │       ├── photo_20251104_021242_503592_jpg.rf.399897381c871b3b8317f808089f0207.txt
+│           │   │       ├── photo_20251104_021242_503592_jpg.rf.b35a7d4057d14ec25fc68cf01bae5d5e.txt
+│           │   │       ├── photo_20251104_021256_638902_jpg.rf.b93f2988b8ec5d36d9f06c80cb393ac8.txt
+│           │   │       ├── photo_20251104_021256_638902_jpg.rf.ce1b174d5db062ebcb557f55724b8753.txt
+│           │   │       ├── photo_20251104_021256_638902_jpg.rf.ea455750d58551e2eaca4e48cada05e0.txt
+│           │   │       ├── photo_20251104_021309_349170_jpg.rf.18166802e214460fd1ffe144896d894e.txt
+│           │   │       ├── photo_20251104_021309_349170_jpg.rf.2d359f029815f13af29dc93b7c182ebe.txt
+│           │   │       ├── photo_20251104_021309_349170_jpg.rf.ac0c08bde96db46932ab2b715692922b.txt
+│           │   │       ├── photo_20251104_021321_386475_jpg.rf.03eb88d3bb41890e0fea66c8260c5225.txt
+│           │   │       ├── photo_20251104_021321_386475_jpg.rf.0d4ff615c331afef219112c65bce8e41.txt
+│           │   │       ├── photo_20251104_021321_386475_jpg.rf.d1559e400af9d4d339340cea0ff73a3a.txt
+│           │   │       ├── photo_20251104_021335_150712_jpg.rf.1385286c08a9cbff548b366b6e38c55d.txt
+│           │   │       ├── photo_20251104_021335_150712_jpg.rf.89341c0c4c1b1848220d86223ecb6b0a.txt
+│           │   │       ├── photo_20251104_021335_150712_jpg.rf.ccb372bd2282772bcfc7422ee2abb22e.txt
+│           │   │       ├── photo_20251104_021423_196074_jpg.rf.7da9a53cf440d6b2b2fcefc1d76360af.txt
+│           │   │       ├── photo_20251104_021423_196074_jpg.rf.e0ca9be83d379dd124c9e5cf39e2650f.txt
+│           │   │       └── photo_20251104_021423_196074_jpg.rf.e131fe107326c9646181cd2649500e17.txt
+│           │   └── valid
+│           │       ├── images
+│           │       │   ├── photo_20251104_014233_jpg.rf.a26d4758358eeeec57ee6e1912f1cf85.jpg
+│           │       │   ├── photo_20251104_020252_247199_jpg.rf.0589fae2375d104fdcbb3da30aa396a1.jpg
+│           │       │   ├── photo_20251104_020326_571521_jpg.rf.59a52e15c26fc369b7499c7843f5528d.jpg
+│           │       │   ├── photo_20251104_020534_500839_jpg.rf.719e33f97a12cbaf573cef1cb31435a0.jpg
+│           │       │   ├── photo_20251104_020558_501358_jpg.rf.6a653cec98adf47d486a6f8536c1a378.jpg
+│           │       │   ├── photo_20251104_020836_844866_jpg.rf.c4b3be58bb136942c7163363393e7cc3.jpg
+│           │       │   ├── photo_20251104_020855_281732_jpg.rf.4b1476e5e6b248da9db7482a6a574ff9.jpg
+│           │       │   ├── photo_20251104_020906_085205_jpg.rf.061de0d1785c0d6135d1b75331d55d1b.jpg
+│           │       │   ├── photo_20251104_020920_837330_jpg.rf.cf387ec89639ceecf926a0ed0ea86e51.jpg
+│           │       │   ├── photo_20251104_020932_728900_jpg.rf.78e276779221ccf5dea697b5306436fd.jpg
+│           │       │   └── photo_20251104_021213_896611_jpg.rf.d43fc572c9391362ccb8b10db0a65cda.jpg
+│           │       └── labels
+│           │           ├── photo_20251104_014233_jpg.rf.a26d4758358eeeec57ee6e1912f1cf85.txt
+│           │           ├── photo_20251104_020252_247199_jpg.rf.0589fae2375d104fdcbb3da30aa396a1.txt
+│           │           ├── photo_20251104_020326_571521_jpg.rf.59a52e15c26fc369b7499c7843f5528d.txt
+│           │           ├── photo_20251104_020534_500839_jpg.rf.719e33f97a12cbaf573cef1cb31435a0.txt
+│           │           ├── photo_20251104_020558_501358_jpg.rf.6a653cec98adf47d486a6f8536c1a378.txt
+│           │           ├── photo_20251104_020836_844866_jpg.rf.c4b3be58bb136942c7163363393e7cc3.txt
+│           │           ├── photo_20251104_020855_281732_jpg.rf.4b1476e5e6b248da9db7482a6a574ff9.txt
+│           │           ├── photo_20251104_020906_085205_jpg.rf.061de0d1785c0d6135d1b75331d55d1b.txt
+│           │           ├── photo_20251104_020920_837330_jpg.rf.cf387ec89639ceecf926a0ed0ea86e51.txt
+│           │           ├── photo_20251104_020932_728900_jpg.rf.78e276779221ccf5dea697b5306436fd.txt
+│           │           └── photo_20251104_021213_896611_jpg.rf.d43fc572c9391362ccb8b10db0a65cda.txt
+│           ├── design-docs
+│           ├── evaluation-info
+│           │   ├── logs
+│           │   └── metrics
+│           ├── extract_label_from_image.md
+│           ├── fine_tune_steps.md
+│           ├── model-training-logs
+│           ├── prepare_finetune_dataset.md
+│           ├── readme.md
+│           └── tuned_model
+│               └── exp3
+│                   ├── confusion_matrix.png
+│                   ├── events.out.tfevents.1762250755.b6284cb32c9a.1773.0
+│                   ├── F1_curve.png
+│                   ├── hyp.yaml
+│                   ├── labels_correlogram.jpg
+│                   ├── labels.jpg
+│                   ├── opt.yaml
+│                   ├── P_curve.png
+│                   ├── PR_curve.png
+│                   ├── R_curve.png
+│                   ├── results.csv
+│                   ├── results.png
+│                   ├── train_batch0.jpg
+│                   ├── train_batch1.jpg
+│                   ├── train_batch2.jpg
+│                   ├── val_batch0_labels.jpg
+│                   ├── val_batch0_pred.jpg
+│                   └── weights
+│                       ├── best.pt
+│                       └── last.pt
+├── Arduino
+│   ├── dir_structure.txt
+│   ├── host_setup.sh
+│   ├── intelligence_setting.md
+│   ├── platformio.ini
+│   ├── README_about_arduino_setting_up.md
+│   ├── README.md
+│   └── src
+│       ├── A_RobotArm.txt
+│       ├── Arduino.ino
+│       ├── arm
+│       │   ├── CommandParser.cpp
+│       │   ├── CommandParser.h
+│       │   ├── Config.h
+│       │   ├── README.md
+│       │   ├── RobotArm.cpp
+│       │   ├── RobotArm.h
+│       │   ├── ServoController.cpp
+│       │   └── ServoController.h
+│       ├── B_InfratedSensor.txt
+│       ├── C_CameraModule.txt
+│       ├── camera
+│       │   ├── CameraModule.cpp
+│       │   ├── CameraModule.h
+│       │   └── README.md
+│       ├── D_VoiceInput.txt
+│       └── sensors
+│           ├── infrared
+│           │   ├── InfratedSensor.cpp
+│           │   └── InfratedSensor.h
+│           └── voice
+│               ├── VoiceInput.cpp
+│               └── VoiceInput.h
+├── dir_structure.txt
+├── docs
+│   └── prd
+│       ├── 1.md
+│       └── getting_started.md
+├── electronic-circuit
+│   └── readme.md
+├── raspberrypi
+│   ├── caliblation.md
+│   ├── config.py
+│   ├── core-app-nextjs
+│   │   ├── app
+│   │   │   ├── api
+│   │   │   │   ├── arduino
+│   │   │   │   │   ├── readme.md
+│   │   │   │   │   ├── route.ts
+│   │   │   │   │   ├── send-command
+│   │   │   │   │   │   └── route.ts
+│   │   │   │   │   ├── visual-input
+│   │   │   │   │   │   └── arm-position-adjustment-from-target-distance
+│   │   │   │   │   │       └── route.ts
+│   │   │   │   │   └── yolov5-to-arm-signal
+│   │   │   │   │       └── synchronize-arm-mobility-adjustment
+│   │   │   │   │           └── route.ts
+│   │   │   │   └── audio-input-convertion
+│   │   │   │       ├── extracted-text-to-arduino-command
+│   │   │   │       │   └── route.ts
+│   │   │   │       ├── route.ts
+│   │   │   │       └── speech-to-text
+│   │   │   │           └── route.ts
+│   │   │   ├── constants
+│   │   │   │   └── commandSet.ts
+│   │   │   ├── favicon.ico
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── eslint.config.mjs
+│   │   ├── next-env.d.ts
+│   │   ├── next.config.ts
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── postcss.config.mjs
+│   │   ├── public
+│   │   │   ├── file.svg
+│   │   │   ├── globe.svg
+│   │   │   ├── next.svg
+│   │   │   ├── vercel.svg
+│   │   │   └── window.svg
+│   │   ├── README.md
+│   │   └── tsconfig.json
+│   ├── init.sh
+│   ├── main.py
+│   ├── memo_readme.md
+│   ├── models
+│   ├── poetry.lock
+│   ├── pyproject.toml
+│   ├── README.md
+│   ├── setup-arduino.md
+│   ├── src
+│   │   ├── __init__.py
+│   │   ├── core
+│   │   │   ├── __init__.py
+│   │   │   ├── orchestrator.py
+│   │   │   └── real_time_control.py
+│   │   ├── hardware
+│   │   │   ├── __init__.py
+│   │   │   ├── arduino_com.py
+│   │   │   ├── audio.py
+│   │   │   ├── camera.py
+│   │   │   └── ir_sensor.py
+│   │   └── processing
+│   │       ├── __init__.py
+│   │       ├── kinematics.py
+│   │       └── llm_parser.py
+│   └── yolov5_fine_tuning_connect_sys.md
+├── README.md
+└── setup_programs
+    ├── get_finetune_seed_images.py
+    ├── test_irsensor_camera
+    │   ├── arduino_com.py
+    │   ├── deploy_to_raspberrypi_arduino.sh
+    │   ├── ir_sensor.py
+    │   ├── real_time_gui.py
+    │   └── Temp_IR_Test.ino
+    └── test_servo_180_0
+        ├── deploy_to_uno.sh
+        ├── deploy.sh
+        ├── Temp_Servo_Test.ino
+        ├── test_servo.py
+        └── usage_test_shell_command.md
+
+56 directories, 400 files
