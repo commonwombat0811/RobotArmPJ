@@ -440,19 +440,121 @@
 │   │       └── llm_parser.py
 │   └── yolov5_fine_tuning_connect_sys.md
 ├── README.md
-└── setup_programs
-    ├── get_finetune_seed_images.py
-    ├── test_irsensor_camera
-    │   ├── arduino_com.py
-    │   ├── deploy_to_raspberrypi_arduino.sh
-    │   ├── ir_sensor.py
-    │   ├── real_time_gui.py
-    │   └── Temp_IR_Test.ino
-    └── test_servo_180_0
-        ├── deploy_to_uno.sh
-        ├── deploy.sh
-        ├── Temp_Servo_Test.ino
-        ├── test_servo.py
-        └── usage_test_shell_command.md
+├── setup_programs
+│   ├── get_finetune_seed_images.py
+│   ├── test_integrated_sys
+│   │   ├── app.py
+│   │   └── arduino_com.py
+│   ├── test_irsensor_camera
+│   │   ├── arduino_com.py
+│   │   ├── deploy_to_raspberrypi_arduino.sh
+│   │   ├── ir_sensor.py
+│   │   ├── real_time_gui.py
+│   │   └── Temp_IR_Test.ino
+│   └── test_servo_180_0
+│       ├── deploy_to_uno.sh
+│       ├── deploy.sh
+│       ├── Temp_Servo_Test.ino
+│       ├── test_servo.py
+│       └── usage_test_shell_command.md
+└── yolov5
+    ├── CONTRIBUTING.md
+    ├── data
+    │   ├── Argoverse.yaml
+    │   ├── coco.yaml
+    │   ├── coco128.yaml
+    │   ├── GlobalWheat2020.yaml
+    │   ├── hyps
+    │   │   ├── hyp.finetune_objects365.yaml
+    │   │   ├── hyp.finetune.yaml
+    │   │   ├── hyp.scratch-high.yaml
+    │   │   ├── hyp.scratch-low.yaml
+    │   │   └── hyp.scratch.yaml
+    │   ├── images
+    │   │   ├── bus.jpg
+    │   │   └── zidane.jpg
+    │   ├── Objects365.yaml
+    │   ├── scripts
+    │   │   ├── download_weights.sh
+    │   │   ├── get_coco.sh
+    │   │   └── get_coco128.sh
+    │   ├── SKU-110K.yaml
+    │   ├── VisDrone.yaml
+    │   ├── VOC.yaml
+    │   └── xView.yaml
+    ├── detect.py
+    ├── Dockerfile
+    ├── export.py
+    ├── hubconf.py
+    ├── LICENSE
+    ├── models
+    │   ├── __init__.py
+    │   ├── common.py
+    │   ├── experimental.py
+    │   ├── hub
+    │   │   ├── anchors.yaml
+    │   │   ├── yolov3-spp.yaml
+    │   │   ├── yolov3-tiny.yaml
+    │   │   ├── yolov3.yaml
+    │   │   ├── yolov5-bifpn.yaml
+    │   │   ├── yolov5-fpn.yaml
+    │   │   ├── yolov5-p2.yaml
+    │   │   ├── yolov5-p6.yaml
+    │   │   ├── yolov5-p7.yaml
+    │   │   ├── yolov5-panet.yaml
+    │   │   ├── yolov5l6.yaml
+    │   │   ├── yolov5m6.yaml
+    │   │   ├── yolov5n6.yaml
+    │   │   ├── yolov5s-ghost.yaml
+    │   │   ├── yolov5s-transformer.yaml
+    │   │   ├── yolov5s6.yaml
+    │   │   └── yolov5x6.yaml
+    │   ├── tf.py
+    │   ├── yolo.py
+    │   ├── yolov5l.yaml
+    │   ├── yolov5m.yaml
+    │   ├── yolov5n.yaml
+    │   ├── yolov5s.yaml
+    │   └── yolov5x.yaml
+    ├── README.md
+    ├── requirements.txt
+    ├── train.py
+    ├── tutorial.ipynb
+    ├── utils
+    │   ├── __init__.py
+    │   ├── activations.py
+    │   ├── augmentations.py
+    │   ├── autoanchor.py
+    │   ├── aws
+    │   │   ├── __init__.py
+    │   │   ├── mime.sh
+    │   │   ├── resume.py
+    │   │   └── userdata.sh
+    │   ├── callbacks.py
+    │   ├── datasets.py
+    │   ├── downloads.py
+    │   ├── flask_rest_api
+    │   │   ├── example_request.py
+    │   │   ├── README.md
+    │   │   └── restapi.py
+    │   ├── general.py
+    │   ├── google_app_engine
+    │   │   ├── additional_requirements.txt
+    │   │   ├── app.yaml
+    │   │   └── Dockerfile
+    │   ├── loggers
+    │   │   ├── __init__.py
+    │   │   └── wandb
+    │   │       ├── __init__.py
+    │   │       ├── log_dataset.py
+    │   │       ├── README.md
+    │   │       ├── sweep.py
+    │   │       ├── sweep.yaml
+    │   │       └── wandb_utils.py
+    │   ├── loss.py
+    │   ├── metrics.py
+    │   ├── plots.py
+    │   └── torch_utils.py
+    └── val.py
 
-56 directories, 400 files
+70 directories, 488 files
