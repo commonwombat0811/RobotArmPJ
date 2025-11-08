@@ -46,7 +46,7 @@ PYTHON_CONFIG_SRC="/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/raspb
 # --- YOLOv5 パス (変更なし) ---
 YOLO_CLONE_SRC_MAC="/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/yolov5"
 YOLO_CLONE_DEST="$REMOTE_WORK_DIR"
-YOLO_MODEL_SRC="/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/ai-models/object-detection/yolov5/tuned_model/exp3/weights/best.pt"
+YOLO_MODEL_SRC="/Users/yutoseki/develop/private-dev/iot-pj/robot-arm-pj/ai-models/object-detection/yolov5/tuned_model/exp/weights/best.pt"
 YOLO_MODEL_DEST="$REMOTE_WORK_DIR/models/best.pt"
 
 # -----------------------------------

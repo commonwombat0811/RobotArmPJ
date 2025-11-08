@@ -28,7 +28,6 @@ g_target_lock = threading.Lock()
 task_queue_mp = None
 ir_value_shared_mp = None
 
-# --- ★★★ これがあなたの「作業ログ」です ★★★ ---
 # 1. 逆回転の定義
 INVERSE_ROTATION = {
     0: False,    # 0: 逆回転
@@ -48,7 +47,6 @@ ANGLE_LIMITS = {
     4: [90, 180], # 4: 90-180
     5: [0, 180]   # 5: 0-180
 }
-# --- ★★★ 修正ここまで ★★★ ---
 
 def apply_servo_constraints(angle_list: List[int]) -> List[int]:
     """
